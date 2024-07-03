@@ -1,6 +1,8 @@
 import { PayloadAction, createSlice } from "@reduxjs/toolkit";
 import { getWeatherOfCityByCity } from "../api/api";
 
+
+
 export interface IWeatherStates {
   inpSearchValue: string;
   cityDataWeather: any;

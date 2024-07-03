@@ -47,8 +47,7 @@ const Home = () => {
               <>
                 {inpSearchValue === "" ? (
                   <>
-                    {" "}
-                    <h1>Please fill this field up with city</h1>
+                    {/* <h1>Please fill this field up with city</h1> */}
                   </>
                 ) : cityDataWeather === undefined && inpSearchValue !== "" ? (
                   <div className="bg-[#a5fbf7] px-2 py-2 rounded-[0_0_10px_10px]">

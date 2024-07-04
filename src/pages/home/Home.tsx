@@ -1,3 +1,5 @@
+import "./style.css"
+
 import { TextField } from "@mui/material";
 import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
@@ -21,7 +23,9 @@ const Home = () => {
   );
 
   useEffect(() => {
-    dispatch(getWeatherOfCityByCity(inpSearchValue));
+    if (inpSearchValue.trim().length !== 0) {
+      dispatch(getWeatherOfCityByCity(inpSearchValue));
+    }
   }, [dispatch, inpSearchValue]);
 
   return (
@@ -39,25 +43,25 @@ const Home = () => {
             variant="filled"
           />
           <div className="block_for_founded_city">
-            {loadingCityDataWeather ? (
-              <div className="bg-[#a5fbf7] px-2 py-2 rounded-[0_0_10px_10px]">
+            {loadingCityDataWeather  ? (
+              <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
                 <h1>Loading...</h1>
               </div>
             ) : (
               <>
-                {inpSearchValue === "" ? (
+                {inpSearchValue.trim().length === 0 ? (
                   <>
                     {/* <h1>Please fill this field up with city</h1> */}
                   </>
-                ) : cityDataWeather === undefined && inpSearchValue !== "" ? (
-                  <div className="bg-[#a5fbf7] px-2 py-2 rounded-[0_0_10px_10px]">
+                ) : cityDataWeather === undefined && inpSearchValue.trim().length !== 0 ? (
+                  <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
                     <h1>
                       <span className="font-bold">{inpSearchValue}</span> isn't
                       found
                     </h1>
                   </div>
                 ) : (
-                  <div className="bg-[#a5fbf7] px-2 py-2 rounded-[0_0_10px_10px]">
+                  <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
                     <h1>
                       City Name:{" "}
                       <span className="font-bold">{cityDataWeather.name}</span>

@@ -6,6 +6,14 @@ import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getWeatherOfCityByCity } from "../../api/api";
 import { setInpSearchValue } from "../../reducers/weatherStates";
 
+//Images
+
+import cloudyImg from "../../assets/Cloudy.svg"
+import clearImg from "../../assets/Clear.svg"
+import rainyImg from "../../assets/Rainy.svg"
+import humidityImg from "../../assets/humidity-icon.png"
+import wingImg from "../../assets/wind-icon.png"
+
 const Home = () => {
   const dispatch = useAppDispatch();
 
@@ -43,17 +51,16 @@ const Home = () => {
             variant="filled"
           />
           <div className="block_for_founded_city">
-            {loadingCityDataWeather  ? (
+            {loadingCityDataWeather ? (
               <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
                 <h1>Loading...</h1>
               </div>
             ) : (
               <>
                 {inpSearchValue.trim().length === 0 ? (
-                  <>
-                    {/* <h1>Please fill this field up with city</h1> */}
-                  </>
-                ) : cityDataWeather === undefined && inpSearchValue.trim().length !== 0 ? (
+                  <>{/* <h1>Please fill this field up with city</h1> */}</>
+                ) : cityDataWeather === undefined &&
+                  inpSearchValue.trim().length !== 0 ? (
                   <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
                     <h1>
                       <span className="font-bold">{inpSearchValue}</span> isn't
@@ -62,9 +69,12 @@ const Home = () => {
                   </div>
                 ) : (
                   <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
-                    <h1>
-                      City Name:{" "}
-                      <span className="font-bold">{cityDataWeather.name}</span>
+                    {cityDataWeather?.weather[0]?.main === "Clouds" ? (
+                      <img src={cloudyImg} alt="" />
+                    ) : null}
+
+                    <h1 className="text-center text-white text-[31px] font-bold">
+                      {cityDataWeather.name}
                     </h1>
                   </div>
                 )}

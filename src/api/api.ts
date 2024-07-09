@@ -5,7 +5,7 @@ import { createAsyncThunk } from "@reduxjs/toolkit";
 import axios from "axios";
 
 export const getWeatherOfCityByCity = createAsyncThunk(
-  "api/getWeatherOfCityByCit",
+  "api/getWeatherOfCityByCity",
   async function (city: string) {
     try {
       const { data } = await axios.get(

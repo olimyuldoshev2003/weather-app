@@ -53,8 +53,8 @@ const Home = () => {
           />
           <div className="block_for_founded_city">
             {loadingCityDataWeather ? (
-              <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
-                <h1>Loading...</h1>
+              <div className="px-2 py-2 rounded-[0_0_10px_10px]">
+                <h1 className="text-white text-center">Loading...</h1>
               </div>
             ) : (
               <>
@@ -62,58 +62,59 @@ const Home = () => {
                   <>{/* <h1>Please fill this field up with city</h1> */}</>
                 ) : cityDataWeather === undefined &&
                   inpSearchValue.trim().length !== 0 ? (
-                  <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
-                    <h1>
+                  <div className=" px-3 py-3 rounded-[0_0_10px_10px] mt-[30px]">
+                    <h1 className="text-[#ad0101] text-center">
                       <span className="font-bold">{inpSearchValue}</span> isn't
-                      found
+                      the city. You must write the city correctly.
                     </h1>
                   </div>
                 ) : (
-                  <div className=" px-2 py-2 rounded-[0_0_10px_10px]">
-                    <div className="block_for_img_weather_and_city flex flex-col justify-center items-center">
+                  <div className=" px-2 py-2 rounded-[0_0_10px_10px] mt-[10px]">
+                    <div className="block_for_img_weather_and_city flex flex-col items-center">
+                      <h1 className="text-white text-start">
+                        {cityDataWeather?.weather?.at(0)?.main}
+                      </h1>
                       {cityDataWeather?.weather?.at(0)?.main === "Clouds" ? (
-                        <img
-                          className="w-[9rem] h-[9rem]"
-                          src={cloudyImg}
-                          alt=""
-                        />
+                        <img className="w-[12rem]" src={cloudyImg} alt="" />
                       ) : cityDataWeather?.weather?.at(0)?.main === "Clear" ? (
-                        <img
-                          className="w-[9rem] h-[9rem]"
-                          src={clearImg}
-                          alt=""
-                        />
+                        <img className="w-[12rem]" src={clearImg} alt="" />
                       ) : cityDataWeather?.weather?.at(0)?.main === "Rain" ? (
-                        <img
-                          className="w-[9rem] h-[9rem]"
-                          src={rainyImg}
-                          alt=""
-                        />
+                        <img className="w-[12rem]" src={rainyImg} alt="" />
                       ) : null}
 
+                      <h1 className="text-center text-white text-[31px] font-bold">
+                        {Math.round(cityDataWeather.main.temp - 273.15)}
+                        <sup>o</sup>C
+                      </h1>
                       <h1 className="text-center text-white text-[31px] font-bold">
                         {cityDataWeather.name}
                       </h1>
                     </div>
-                    <div className="humidity_wind_block flex justify-between mt-5 px-4">
-                      <div className="humidity_block flex gap-1">
+                    <div className="humidity_wind_block w-[100%] flex justify-between mt-5 px-4 gap-4">
+                      <div className="humidity_block flex items-center gap-1">
                         <img
                           src={humidityImg}
-                          className="w-[40px] h-[40px]"
+                          className="w-[30px] h-[30px]"
                           alt=""
                         />
                         <div className="block_number_text_humidity">
-                          <h1>{cityDataWeather?.main?.humidity}</h1>
+                          <h1 className="text-white text-[12px]">
+                            {cityDataWeather?.main?.humidity}%
+                          </h1>
+                          <h1 className="text-white text-[12px]">Humidity</h1>
                         </div>
                       </div>
-                      <div className="wind_block flex gap-1">
+                      <div className="wind_block flex items-center gap-1">
                         <img
                           src={windImg}
-                          className="w-[40px] h-[40px]"
+                          className="w-[30px] h-[30px]"
                           alt=""
                         />
                         <div className="block_number_text_wind">
-                          <h1>{cityDataWeather?.wind?.speed}</h1>
+                          <h1 className="text-white text-[12px]">
+                            {cityDataWeather?.wind?.speed}km/h
+                          </h1>
+                          <h1 className="text-white text-[12px]">Wind Speed</h1>
                         </div>
                       </div>
                     </div>

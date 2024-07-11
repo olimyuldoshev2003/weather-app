@@ -39,7 +39,8 @@ const Home = () => {
 
   return (
     <>
-      <div className="home_component flex justify-center items-center min-h-[70vh]">
+      <div className="home_component flex flex-col gap-3 justify-center items-center min-h-[96.5vh]">
+        <h1 className="max-w-[300px] text-center text-white font-bold text-[24px]">Search the cities for seeing the weather on that city</h1>
         <div className="block_search_countries_and_their_weather border-[1px] border-none outline-none w-[300px] p-4 flex flex-col rounded-md dark:bg-[#fff]">
           <TextField
             id="filled-basic"
@@ -83,7 +84,7 @@ const Home = () => {
                       ) : null}
 
                       <h1 className="text-center text-white text-[31px] font-bold">
-                        {Math.round(cityDataWeather.main.temp - 273.15)}
+                        {Math.ceil(cityDataWeather.main.temp - 273)}
                         <sup>o</sup>C
                       </h1>
                       <h1 className="text-center text-white text-[31px] font-bold">

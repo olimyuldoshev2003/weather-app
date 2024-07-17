@@ -1,4 +1,3 @@
-import React from "react";
 import { Link, Outlet } from "react-router-dom";
 
 // For images
@@ -35,6 +34,7 @@ const Layout = () => {
             </nav>
             <div className="block_3_header">
               <Switcher />
+              
             </div>
           </div>
         </header>

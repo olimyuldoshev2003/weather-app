@@ -1,7 +1,7 @@
+import React, { useEffect } from "react";
 import "./style.css";
 
 import { TextField } from "@mui/material";
-import React, { useEffect } from "react";
 import { useAppDispatch, useAppSelector } from "../../store/hooks";
 import { getWeatherOfCityByCity } from "../../api/api";
 import { setInpSearchValue } from "../../reducers/weatherStates";
@@ -84,11 +84,11 @@ const Home = () => {
                       ) : null}
 
                       <h1 className="text-center text-white text-[31px] font-bold">
-                        {Math.ceil(cityDataWeather.main.temp - 273)}
+                        {Math.ceil(cityDataWeather?.main?.temp - 273)}
                         <sup>o</sup>C
                       </h1>
                       <h1 className="text-center text-white text-[31px] font-bold">
-                        {cityDataWeather.name}
+                        {cityDataWeather?.name}
                       </h1>
                     </div>
                     <div className="humidity_wind_block w-[100%] flex justify-between mt-5 px-4 gap-4">

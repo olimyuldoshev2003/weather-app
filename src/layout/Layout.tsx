@@ -8,8 +8,7 @@ import Switcher from "../components/switcher/Switcher";
 const Layout = () => {
   return (
     <>
-      <div className="layout_component dark:bg-[#2e2e2e]">
-        <header className="header max-w-[1440px] m-[0_auto]">
+        <header className="header max-w-[1440px] m-[0_auto] px-[40px]">
           <div className="header_block flex justify-between items-center py-3">
             <div className="block_1_logo_header">
               <Link to={`/`}>
